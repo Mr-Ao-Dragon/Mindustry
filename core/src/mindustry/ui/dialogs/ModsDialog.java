@@ -114,7 +114,7 @@ public class ModsDialog extends BaseDialog{
 
     void getModList(Cons<Seq<ModListing>> listener){
         if(modList == null){
-            Http.get("https://raw.githubusercontent.com/Anuken/MindustryMods/master/mods.json", response -> {
+            Http.get("https://raw.githubusercontents.com/Anuken/MindustryMods/master/mods.json", response -> {
                 String strResult = response.getResultAsString();
 
                 Core.app.post(() -> {
@@ -496,7 +496,7 @@ public class ModsDialog extends BaseDialog{
                             //textures are only requested when the rendering happens; this assists with culling
                             if(!textureCache.containsKey(repo)){
                                 textureCache.put(repo, last = Core.atlas.find("nomap"));
-                                Http.get("https://raw.githubusercontent.com/Anuken/MindustryMods/master/icons/" + repo.replace("/", "_"), res -> {
+                                Http.get("https://raw.githubusercontents.com/Anuken/MindustryMods/master/icons/" + repo.replace("/", "_"), res -> {
                                     Pixmap pix = new Pixmap(res.getResult());
                                     Core.app.post(() -> {
                                         try{
